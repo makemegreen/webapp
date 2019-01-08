@@ -1,0 +1,182 @@
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+.form-signin .checkbox {
+    font-weight: 400;
+}
+.form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-error{
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+
+.footprint-card{
+    margin-bottom: 20px;
+}
+
+.card-img{
+    height: 40px;
+    width: 40px;
+}
+
+.btn-primary{
+    background-color: #519872;
+    border-color: #519872;
+}
+
+.btn-primary:hover{
+    background-color: #4CAF50;
+    border-color: #388E3C;
+}
+
+.btn-secondary{
+    background-color: #8BC34A;
+    border-color: #388E3C;
+}
+
+.btn-secondary:hover{
+    background-color: #4CAF50;
+    border-color: #388E3C;
+}
+
+.reco-card{
+    min-height: 200px;
+    padding: 6px;
+    margin: 6px;
+    -webkit-box-shadow: 0 2px 6px rgba(0,0,0,.2);
+    box-shadow: 0 2px 6px rgba(0,0,0,.2);
+}
+
+.fail{
+    background-color: #86989B;
+    color: #5a6268;
+}
+
+.success{
+    background-color: lightgreen;
+    color: #5a6268;
+}
+
+.activity-section a{
+    color: white;
+}
+
+.activity-section{
+    background-color: #508991;
+    margin-top: 10px;
+    height: 40px;
+    padding-top: 8px;
+}
+
+
+.leaderbord-avatar{
+    margin-right: 6px;
+    height: 50px;
+}
+
+.engine-section{
+    /*margin: 2px;*/
+    padding: 8px;
+    /*border: 1px solid #0c5460;*/
+    /*background-color: #ABE188;*/
+    /*background-color: #D7EEF8;*/
+    color: black;
+}
+
+.discover-section {
+    /*background-color: #519872;*/
+    margin-bottom: 14px;
+    /*color: white;*/
+    /*font-size: 2.1em;*/
+    /*padding-top: 20px;*/
+    /*height: 80px;*/
+    /*width: 80px;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*border-radius: 50px;*/
+    /*-webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);*/
+    /*-moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);*/
+    /*box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);*/
+
+}
+.discover-section>discover-button{
+    /*margin: 16px;*/
+    /*background-color: #519872;*/
+}
+
+.discover-button>a{
+    /*border-radius: 50%;*/
+    /*background-color: #519872;*/
+    /*padding: 16px;*/
+    /*color: white;*/
+    /*border: 1px solid white;*/
+    /*font-size: 16px;*/
+}
+
+.footprint-form{
+    background-color: #519872;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    color: white;
+}
+
+.footprint-result{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    /*color: white;*/
+}
+
+.footprint-form h4{
+    margin-top: 40px;
+}
+
+.footprint-form label{
+    font-weight: bold;
+    font-size: 150%;
+}
+
+.footprint-form .form-group{
+    margin-top: 16%;
+}
+
+.footprint-form .custom-select{
+    width: 80%;
+}
+
+.footprint-form a{
+    color: white;
+}
+
+.reco-content{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+}

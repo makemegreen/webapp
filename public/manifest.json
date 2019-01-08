@@ -1,0 +1,22 @@
+{
+  "short_name": "MakeMeGreen",
+  "name": "Make Me Green",
+  "icons": [
+    {
+      "src": "/icon/green_tree_60.png",
+      "sizes": "60x60",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon/green_tree_120.png",
+      "sizes": "120x120",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#ffffff",
+  "background_color": "#519872",
+  "fullscreen": "true"
+}
