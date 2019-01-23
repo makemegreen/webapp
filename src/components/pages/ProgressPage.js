@@ -28,19 +28,19 @@ class ProgressPage extends Component {
                     "history" : history
                 })
 
-                let series_carbon = []
-                let series_water = []
-                let series_waste = []
+                let series_road = []
+                let series_home = []
+                let series_food = []
                 history.map(footprints => (
                     footprints.map(footprint => {
-                            if (get(get(footprint, 'type'), 'label') == "carbon") {
-                                series_carbon.push([moment(get(footprint, 'date_created')).valueOf(), get(footprint, 'value')])
+                            if (get(get(footprint, 'type'), 'label') == "road") {
+                                series_road.push([moment(get(footprint, 'date_created')).valueOf(), get(footprint, 'value')])
                             }
-                            if (get(get(footprint, 'type'), 'label') == "waste") {
-                                series_waste.push([moment(get(footprint, 'date_created')).valueOf(), get(footprint, 'value')])
+                            if (get(get(footprint, 'type'), 'label') == "food") {
+                                series_food.push([moment(get(footprint, 'date_created')).valueOf(), get(footprint, 'value')])
                             }
-                            if (get(get(footprint, 'type'), 'label') == "water") {
-                                series_water.push([moment(get(footprint, 'date_created')).valueOf   (), get(footprint, 'value')])
+                            if (get(get(footprint, 'type'), 'label') == "home") {
+                                series_home.push([moment(get(footprint, 'date_created')).valueOf   (), get(footprint, 'value')])
                             }
                         }))
                 )
@@ -77,14 +77,14 @@ class ProgressPage extends Component {
                         verticalAlign: 'middle'
                     },
                     series: [{
-                        name: 'carbon',
-                        data: series_carbon
+                        name: 'road',
+                        data: series_road
                     }, {
-                        name: 'waste',
-                        data: series_waste
+                        name: 'food',
+                        data: series_food
                     }, {
-                        name: 'water',
-                        data: series_water
+                        name: 'home',
+                        data: series_home
                     }],
 
                     responsive: {

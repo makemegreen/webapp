@@ -34,13 +34,13 @@ class RecommendationItem extends Component {
         const reco_difficulty_level = get(recommendation, "difficulty_level")
         let reco_img = null
         switch (reco_type) {
-            case 'carbon':
+            case 'road':
                 reco_img = THUMBS_URL + "car"
                 break;
-            case 'water':
+            case 'food':
                 reco_img = THUMBS_URL + "food"
                 break;
-            case 'waste':
+            case 'home':
                 reco_img = THUMBS_URL + "home"
                 break;
         }

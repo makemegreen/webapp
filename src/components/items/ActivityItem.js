@@ -18,7 +18,9 @@ class ActivityItem extends Component {
             status: null,
             reco_title: null,
             reco_benefit: null,
+            reco_benefit_description: null,
             reco_type: null,
+            reco_how_to: null,
             reco_content: null,
             display_status: ""}
     }
@@ -75,7 +77,9 @@ class ActivityItem extends Component {
         const date_end = moment(get(activity, "date_end")).format('DD MMMM YYYY à HH:mm')
         const status = get(get(activity, "status"),"label")
         const reco_title = get(get(activity, "recommendation"),"title")
+        const reco_how_to = get(get(activity, "recommendation"),"how_to")
         const reco_benefit = get(get(activity, "recommendation"),"benefit")
+        const reco_benefit_description = get(get(activity, "recommendation"),"benefit_description")
         const reco_content = get(get(activity, "recommendation"),"content")
         const reco_type = get(get(get(activity, "recommendation"),"type"),"label")
 
@@ -98,7 +102,9 @@ class ActivityItem extends Component {
                         "date_end": date_end,
                         "status" : status,
                         "reco_title": reco_title,
+                        "reco_how_to": reco_how_to,
                         "reco_benefit": reco_benefit,
+                        "reco_benefit_description": reco_benefit_description,
                         "reco_type": reco_type,
                         "reco_content": reco_content,
                         "display_status": display_status
@@ -138,11 +144,7 @@ class ActivityItem extends Component {
                         <div className="collapse"
                              id={"calcul"+ this.state.activity_id }>
                             <div className="card card-body">
-                                {/*{ this.state.reco_calcul }*/}
-                                1g de plastique ~= 0,045 kgCO2<br />
-                                1 tube de dentifrice = 50g de plastique<br />
-                                25 tubes de dentifrice par an<br />
-                                Impact total : 45 x 50 x 25 ~= 56 kgCO2<br />
+                                { this.state.reco_benefit_description }
                             </div>
                         </div>
                     </div>
@@ -152,20 +154,17 @@ class ActivityItem extends Component {
                         </h6>
                         { this.state.reco_content }
                     </div>
+                { this.state.reco_how_to ? (
                     <div className="reco-howto">
                         <h6>
                             <strong>Comment le faire ?</strong>
                         </h6>
-                        {/*{ this.state.reco_howto }*/}
-                        Prenez un truc et faite un machin.
-                        Le machin peut-être plus ou moins truc.
-                        Sinon vous povuez aussi faire des choses comme ça :
-                        <ul>
-                            <li>avec un truc</li>
-                            <li>avec une chose</li>
-                            <li>avec un bidule aussi</li>
-                        </ul>
+                        { this.state.reco_how_to }
                     </div>
+                ):(
+                    <div className="reco-howto">
+                    </div>
+                )}
                 </div>
                 { this.state.status == "pending" ? (
                 <div className="activity-actions row">

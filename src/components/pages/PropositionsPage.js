@@ -45,7 +45,7 @@ class PropositionsPage extends Component {
                 </div>
 
                 <div className="container content">
-                    {!isLoading || this.state.propositions.length > 0 ? (
+                    {!isLoading && this.state.propositions.length > 0 ? (
                         <div className="propositions-section">
                             <div id="carousel" className="carousel slide" data-interval="false">
                                 <div className="carousel-inner">

@@ -9,8 +9,8 @@ class ConnexionPage extends Component {
 
     constructor (props) {
         super(props)
-        this.state = { email: null,
-                       password: null,
+        this.state = { email: '',
+                       password: '',
                         errors: null}
     }
 
@@ -40,7 +40,7 @@ class ConnexionPage extends Component {
                 <form className="form-signin"
                       onSubmit={e => { e.preventDefault(); this.onSubmitedClick();} }>
                     <h1 className="h3 mb-3 font-weight-normal">Connexion</h1>
-                    <label for="email" className="sr-only">Adresse email</label>
+                    <label htmlFor="email" className="sr-only">Adresse email</label>
                     <input type="email"
                            id="email"
                            className="form-control"
@@ -48,7 +48,7 @@ class ConnexionPage extends Component {
                            onChange={( e ) => this.setState({ email : e.target.value })}
                            value={this.state.email}
                            required autoFocus/>
-                    <label for="password" className="sr-only">Mot de passe</label>
+                    <label htmlFor="password" className="sr-only">Mot de passe</label>
                     <input type="password" id="password" className="form-control" placeholder="Mot de passe" required
                            onChange={( e ) => this.setState({ password : e.target.value })}
                            value={this.state.password}/>

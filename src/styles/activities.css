@@ -110,15 +110,15 @@
 }
 
 /*TODO: rename water, carbon, waste in car, food, home */
-.activity-title.water{
+.activity-title.food{
     background-color: #FFC04C;
 }
 
-.activity-title.carbon{
+.activity-title.road{
     background-color: #56E39F;
 }
 
-.activity-title.waste{
+.activity-title.home{
     background-color: #FFAF87;
 }
 

@@ -15,8 +15,9 @@ class PropositionItem extends Component {
             reco_type: null,
             reco_title: null,
             reco_benefit: null,
+            reco_benefit_description: null,
             reco_content: null,
-            reco_difficulty_level: null}
+            reco_how_to: null}
     }
 
     onSuccessClick = () => {
@@ -34,16 +35,18 @@ class PropositionItem extends Component {
         const reco_type = get(get(proposition, "type"),"label")
         const reco_title = get(proposition, "title")
         const reco_benefit = get(proposition, "benefit")
+        const reco_benefit_description = get(proposition, "benefit_description")
         const reco_content = get(proposition, "content")
-        const reco_difficulty_level = get(proposition, "difficulty_level")
+        const reco_how_to = get(proposition, "how_to")
         const reco_first = get(proposition, "first")
 
         this.setState( { "reco_id": reco_id,
                         "reco_type": reco_type,
                         "reco_title": reco_title,
                         "reco_benefit": reco_benefit,
+                        "reco_benefit_description": reco_benefit_description,
                         "reco_content": reco_content,
-                        "reco_difficulty_level": reco_difficulty_level,
+                        "reco_how_to": reco_how_to,
                         "reco_first": reco_first,
                     } )
     }
@@ -55,15 +58,15 @@ class PropositionItem extends Component {
 
         if ( this.state && this.state.reco_type){
             switch (this.state.reco_type) {
-                case 'carbon':
+                case 'road':
                     reco_category = "Sur la route"
                     reco_img = THUMBS_URL + "car_filled_color"
                     break;
-                case 'water':
+                case 'food':
                     reco_category = "Dans mon assiette"
                     reco_img = THUMBS_URL + "food_filled_color"
                     break;
-                case 'waste':
+                case 'home':
                     reco_category = "Chez moi"
                     reco_img = THUMBS_URL + "home_filled_color"
                     break;
@@ -99,16 +102,9 @@ class PropositionItem extends Component {
                             <div className="collapse"
                                  id={"calcul"+ this.state.reco_id }>
                                 <div className="card card-body">
-                                    {/*{ this.state.reco_calcul }*/}
-                                    1g de plastique ~= 0,045 kgCO2<br />
-                                    1 tube de dentifrice = 50g de plastique<br />
-                                    25 tubes de dentifrice par an<br />
-                                    Impact total : 45 x 50 x 25 ~= 56 kgCO2<br />
+                                    { this.state.reco_benefit_description }
                                 </div>
                             </div>
-                        </div>
-                        <div className="proposition-difficulty text-center text-muted">
-                            Difficulté: { this.state.reco_difficulty_level }
                         </div>
 
                         <div className={"proposition-didyouknow prop-" + this.state.reco_type}>
@@ -142,20 +138,17 @@ class PropositionItem extends Component {
                                 </h6>
                                 { this.state.reco_content }
                             </div>
+                            { this.state.reco_how_to ? (
                             <div className="reco-howto">
                                 <h6>
                                     <strong>Comment le faire ?</strong>
                                 </h6>
-                                {/*{ this.state.reco_howto }*/}
-                                Prenez un truc et faite un machin.
-                                Le machin peut-être plus ou moins truc.
-                                Sinon vous povuez aussi faire des choses comme ça :
-                                <ul>
-                                    <li>avec un truc</li>
-                                    <li>avec une chose</li>
-                                    <li>avec un bidule aussi</li>
-                                </ul>
+                                { this.state.reco_how_to }
                             </div>
+                            ):(
+                                <div className="reco-howto">
+                                </div>
+                            )}
                         </div>
 
 

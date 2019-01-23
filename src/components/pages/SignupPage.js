@@ -9,9 +9,9 @@ class SignupPage extends Component {
 
     constructor (props) {
         super(props)
-        this.state = { email: null,
-                       username: null,
-                       password: null,
+        this.state = { email: '',
+                       username: '',
+                       password: '',
                        footprints: this.props.footprints,
                         errors: null }
     }
@@ -49,23 +49,23 @@ class SignupPage extends Component {
                 <form className="form-signin"
                       onSubmit={e => { e.preventDefault(); this.onSubmitedClick();} }>
                     <h1 className="h3 mb-3 font-weight-normal">Connexion</h1>
-                    <label for="username" className="sr-only">Nom d'utilisateur</label>
+                    <label htmlFor="username" className="sr-only">Nom d'utilisateur</label>
                     <input type="username"
                            id="username"
                            className="form-control"
                            placeholder="Username"
                            onChange={( e ) => this.setState({ username : e.target.value })}
                            value={this.state.username}
-                           required autofocus/>
-                    <label for="email" className="sr-only">Adresse email</label>
+                           required autoFocus/>
+                    <label htmlFor="email" className="sr-only">Adresse email</label>
                     <input type="email"
                            id="email"
                            className="form-control"
                            placeholder="Email"
                            onChange={( e ) => this.setState({ email : e.target.value })}
                            value={this.state.email}
-                           required autofocus/>
-                    <label for="password" className="sr-only">Mot de passe</label>
+                           required/>
+                    <label htmlFor="password" className="sr-only">Mot de passe</label>
                     <input type="password" id="password" className="form-control" placeholder="Mot de passe" required
                            onChange={( e ) => this.setState({ password : e.target.value })}
                            value={this.state.password}/>

@@ -10,17 +10,17 @@ const FootprintResultItem = ({
     let footprint_color = null
     let footprint_img = null
     switch (footprint_type) {
-        case 'carbon':
-            footprint_color = "car"
+        case 'road':
+            footprint_color = "road"
             footprint_category = "Sur la route"
             footprint_img = THUMBS_URL + "car"
             break;
-        case 'water':
+        case 'food':
             footprint_color = "food"
             footprint_category = "Dans mon assiette"
             footprint_img = THUMBS_URL + "food"
             break;
-        case 'waste':
+        case 'home':
             footprint_color = "home"
             footprint_category = "Chez moi"
             footprint_img = THUMBS_URL + "home"
