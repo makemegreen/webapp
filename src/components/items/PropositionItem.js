@@ -12,6 +12,7 @@ class PropositionItem extends Component {
     constructor(){
         super()
         this.state = { reco_id: null,
+            proposition_id: null,
             reco_type: null,
             reco_title: null,
             reco_benefit: null,
@@ -25,13 +26,14 @@ class PropositionItem extends Component {
     }
 
     onFailClick = () => {
-    //    TODO:
+        this.props.dispatch(requestData('GET',`/propositions/reject/${this.state.proposition_id}`))
     }
 
     componentDidMount () {
         const { proposition } = this.props
 
         const reco_id = get(proposition, "id")
+        const proposition_id = get(proposition, "proposition_id")
         const reco_type = get(get(proposition, "type"),"label")
         const reco_title = get(proposition, "title")
         const reco_benefit = get(proposition, "benefit")
@@ -41,6 +43,7 @@ class PropositionItem extends Component {
         const reco_first = get(proposition, "first")
 
         this.setState( { "reco_id": reco_id,
+                        "proposition_id": proposition_id,
                         "reco_type": reco_type,
                         "reco_title": reco_title,
                         "reco_benefit": reco_benefit,
