@@ -4,6 +4,7 @@ import {requestData} from "../../reducers/data";
 import React, {Component} from 'react'
 import {connect} from "react-redux";
 import calcul from "../../assets/calcul.png"
+import detail_bottom from "../../assets/details_bottom.png"
 
 class ActivityItem extends Component {
 
@@ -148,23 +149,41 @@ class ActivityItem extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="reco-why">
-                        <h6>
-                            <strong>Pourquoi le faire ?</strong>
-                        </h6>
-                        { this.state.reco_content }
+                    <div className="text-center">
+                        <a className="activity-detail"
+                           data-toggle="collapse"
+                           href={"#detail"+ this.state.reco_id }
+                           aria-expanded="false"
+                           aria-controls={"detail"+ this.state.reco_id }>
+                            <h6>
+                                En savoir plus
+                            </h6>
+                            <img className="details-img" src={ detail_bottom } alt="display details"/>
+                        </a>
                     </div>
-                { this.state.reco_how_to ? (
-                    <div className="reco-howto">
-                        <h6>
-                            <strong>Comment le faire ?</strong>
-                        </h6>
-                        { this.state.reco_how_to }
+
+                    <div className="collapse"
+                         id={"detail"+ this.state.reco_id }>
+                        <div className="reco-why">
+                            <h6>
+                                <strong>Pourquoi le faire ?</strong>
+                            </h6>
+                            { this.state.reco_content }
+                        </div>
+                        { this.state.reco_how_to ? (
+                            <div className="reco-howto">
+                                <h6>
+                                    <strong>Comment le faire ?</strong>
+                                </h6>
+                                { this.state.reco_how_to }
+                            </div>
+                        ):(
+                            <div className="reco-howto">
+                            </div>
+                        )}
                     </div>
-                ):(
-                    <div className="reco-howto">
-                    </div>
-                )}
+
+
                 </div>
                 { this.state.status == "pending" ? (
                 <div className="activity-actions row">

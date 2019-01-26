@@ -45,31 +45,34 @@ class PropositionsPage extends Component {
                 </div>
 
                 <div className="container content">
-                    {!isLoading && this.state.propositions.length > 0 ? (
-                        <div className="propositions-section">
-                            <div id="carousel" className="carousel slide" data-interval="false">
-                                <div className="carousel-inner">
-                                    {this.state.propositions.map(proposition => (
-                                        <PropositionItem key={proposition.id}
-                                                         proposition={proposition} />
-                                    ))}
+                    {!isLoading ? (
+                        !isLoading && this.state.propositions.length > 0 ? (
+                            <div className="propositions-section">
+                                <div id="carousel" className="carousel slide" data-interval="false">
+                                    <div className="carousel-inner">
+                                        {this.state.propositions.map(proposition => (
+                                            <PropositionItem key={proposition.id}
+                                                             proposition={proposition} />
+                                        ))}
+                                    </div>
                                 </div>
+                                <a className="left carousel-control-prev" href="#carousel" data-slide="prev">
+                                    <span className="leftControl">
+                                        <i className="icon icon-chevron-left"></i>
+                                    </span>
+                                </a>
+                                <a className="right carousel-control-next" href="#carousel" data-slide="next">
+                                    <span className="rightControl">
+                                        <i className="icon icon-chevron-right"></i>
+                                    </span>
+                                </a>
                             </div>
-                            <a className="left carousel-control-prev" href="#carousel" data-slide="prev">
-                                <span className="leftControl">
-                                    <i className="icon icon-chevron-left"></i>
-                                </span>
-                            </a>
-                            <a className="right carousel-control-next" href="#carousel" data-slide="next">
-                                <span className="rightControl">
-                                    <i className="icon icon-chevron-right"></i>
-                                </span>
-                            </a>
-                        </div>
+                        ):(
+                            <div>Il semblerait qu'il n'y ait plus de nouvelles propositions pour le moment...</div>
+                        )
                     ):(
-                        <div>Il semblerait qu'il n'y ait plus de nouvelles propositions pour le moment...</div>
-                    )
-                    }
+                    <span>Chargement en cours...</span>
+                    )}
                 </div>
             </div>
         )

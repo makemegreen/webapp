@@ -45,9 +45,13 @@ class ActivitiesPage extends Component {
 
                 <div className="container content">
                     {!isLoading ? (
+                        !isLoading && this.state.activities.length > 0 ? (
                         this.state.activities.map(activity => (
                             <ActivityItem key={activity.id} activity={activity} />
                         ))
+                        ):(
+                            <span>Vous n'avez aucune activité en cours.</span>
+                        )
                     ):(
                         <span>Chargement en cours...</span>
                     )}

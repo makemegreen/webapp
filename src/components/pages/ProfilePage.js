@@ -97,73 +97,73 @@ class ProfilePage extends Component {
                                                 </div>
                                             </NavLink>
                                         </li>
-                                        <li className="list-group-item profile-item">
-                                            <NavLink to="/friends">
-                                                <div className="row">
-                                                    <div className="col text-left">
-                                                        Je veux donner plus d'informations
-                                                    </div>
-                                                    <div className="col-2 text-center">
-                                                        <img className="details-img" src={ details } alt="go to details"/>
-                                                    </div>
-                                                </div>
-                                            </NavLink>
-                                        </li>
+                                        {/*<li className="list-group-item profile-item">*/}
+                                            {/*<NavLink to="/friends">*/}
+                                                {/*<div className="row">*/}
+                                                    {/*<div className="col text-left">*/}
+                                                        {/*Je veux donner plus d'informations*/}
+                                                    {/*</div>*/}
+                                                    {/*<div className="col-2 text-center">*/}
+                                                        {/*<img className="details-img" src={ details } alt="go to details"/>*/}
+                                                    {/*</div>*/}
+                                                {/*</div>*/}
+                                            {/*</NavLink>*/}
+                                        {/*</li>*/}
                                     </ul>
                                 </div>
                             </div>
 
-                            <div className="dashboard-card">
-                                <div className="dashboard-card-title">
-                                    Mes amis
-                                </div>
-                                <div className="dashboard-card-content">
-                                    <ul className="list-group list-group-flush">
-                                        <li className="list-group-item profile-item">
-                                            <a data-toggle="collapse"
-                                               href="#add-friend-form"
-                                               aria-expanded="false"
-                                               aria-controls="add-friend-form">
-                                                Ajouter un ami
-                                            </a>
-                                            <div className="collapse"
-                                                 id="add-friend-form">
-                                                <div className="card card-body">
-                                                    <form className="form-inline"
-                                                        onSubmit={e => { e.preventDefault();
-                                                          this.onAddFriendClick();} }>
-                                                        <div className="form-group mb-2">
-                                                            <input type="email"
-                                                                   id="friend_email"
-                                                                   className="form-control"
-                                                                   placeholder="Email de mon ami"
-                                                                   onChange={( e ) => this.setState({ friend_email : e.target.value })}
-                                                                   value={this.state.friend_email}
-                                                                   required />
-                                                        </div>
-                                                        <button className="btn btn-primary mb-2"
-                                                                type="submit">
-                                                            Ajouter
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="list-group-item profile-item">
-                                            <NavLink to="/friends">
-                                                <div className="row">
-                                                    <div className="col text-left">
-                                                        Voir la liste de mes amis
-                                                    </div>
-                                                    <div className="col-2 text-center">
-                                                        <img className="details-img" src={ details } alt="go to details"/>
-                                                    </div>
-                                                </div>
-                                            </NavLink>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            {/*<div className="dashboard-card">*/}
+                                {/*<div className="dashboard-card-title">*/}
+                                    {/*Mes amis*/}
+                                {/*</div>*/}
+                                {/*<div className="dashboard-card-content">*/}
+                                    {/*<ul className="list-group list-group-flush">*/}
+                                        {/*<li className="list-group-item profile-item">*/}
+                                            {/*<a data-toggle="collapse"*/}
+                                               {/*href="#add-friend-form"*/}
+                                               {/*aria-expanded="false"*/}
+                                               {/*aria-controls="add-friend-form">*/}
+                                                {/*Ajouter un ami*/}
+                                            {/*</a>*/}
+                                            {/*<div className="collapse"*/}
+                                                 {/*id="add-friend-form">*/}
+                                                {/*<div className="card card-body">*/}
+                                                    {/*<form className="form-inline"*/}
+                                                        {/*onSubmit={e => { e.preventDefault();*/}
+                                                          {/*this.onAddFriendClick();} }>*/}
+                                                        {/*<div className="form-group mb-2">*/}
+                                                            {/*<input type="email"*/}
+                                                                   {/*id="friend_email"*/}
+                                                                   {/*className="form-control"*/}
+                                                                   {/*placeholder="Email de mon ami"*/}
+                                                                   {/*onChange={( e ) => this.setState({ friend_email : e.target.value })}*/}
+                                                                   {/*value={this.state.friend_email}*/}
+                                                                   {/*required />*/}
+                                                        {/*</div>*/}
+                                                        {/*<button className="btn btn-primary mb-2"*/}
+                                                                {/*type="submit">*/}
+                                                            {/*Ajouter*/}
+                                                        {/*</button>*/}
+                                                    {/*</form>*/}
+                                                {/*</div>*/}
+                                            {/*</div>*/}
+                                        {/*</li>*/}
+                                        {/*<li className="list-group-item profile-item">*/}
+                                            {/*<NavLink to="/friends">*/}
+                                                {/*<div className="row">*/}
+                                                    {/*<div className="col text-left">*/}
+                                                        {/*Voir la liste de mes amis*/}
+                                                    {/*</div>*/}
+                                                    {/*<div className="col-2 text-center">*/}
+                                                        {/*<img className="details-img" src={ details } alt="go to details"/>*/}
+                                                    {/*</div>*/}
+                                                {/*</div>*/}
+                                            {/*</NavLink>*/}
+                                        {/*</li>*/}
+                                    {/*</ul>*/}
+                                {/*</div>*/}
+                            {/*</div>*/}
 
                         </div>
                     ):(
@@ -177,28 +177,28 @@ class ProfilePage extends Component {
                         </div>
                         <div className="dashboard-card-content">
                             <ul className="list-group list-group-flush">
-                                <li className="list-group-item profile-item">
-                                    <NavLink to="#">
-                                        Recevoir la newsletter
-                                    </NavLink>
-                                </li>
-                                <li className="list-group-item profile-item">
-                                    <NavLink to="#">
-                                        Changer mon mot de passe
-                                    </NavLink>
-                                </li>
+                                {/*<li className="list-group-item profile-item">*/}
+                                    {/*<NavLink to="#">*/}
+                                        {/*Recevoir la newsletter*/}
+                                    {/*</NavLink>*/}
+                                {/*</li>*/}
+                                {/*<li className="list-group-item profile-item">*/}
+                                    {/*<NavLink to="#">*/}
+                                        {/*Changer mon mot de passe*/}
+                                    {/*</NavLink>*/}
+                                {/*</li>*/}
                                 <li className="list-group-item profile-item">
                                     <NavLink to="#"
                                              onClick={this.onSignOutClick}>
                                         Me déconnecter
                                     </NavLink>
                                 </li>
-                                <li className="list-group-item profile-item">
-                                    <NavLink to="#"
-                                             className="delete-account">
-                                        Supprimer mon compte
-                                    </NavLink>
-                                </li>
+                                {/*<li className="list-group-item profile-item">*/}
+                                    {/*<NavLink to="#"*/}
+                                             {/*className="delete-account">*/}
+                                        {/*Supprimer mon compte*/}
+                                    {/*</NavLink>*/}
+                                {/*</li>*/}
                             </ul>
                         </div>
                     </div>

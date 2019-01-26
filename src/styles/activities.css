@@ -121,3 +121,18 @@
     background-color: #FFAF87;
 }
 
+
+.activity-detail{
+    color: #212121;
+    text-decoration: none;
+}
+
+.activity-detail:hover{
+    color: #212121;
+    text-decoration: none;
+}
+
+.activity-detail:focus{
+    color: #212121;
+    text-decoration: none;
+}

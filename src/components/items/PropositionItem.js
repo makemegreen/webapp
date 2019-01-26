@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {THUMBS_URL} from "../../utils/config";
 import calcul from "../../assets/calcul.png"
 import detail_bottom from "../../assets/details_bottom.png"
+import {NavLink} from "react-router-dom";
 
 
 class PropositionItem extends Component {
@@ -18,15 +19,28 @@ class PropositionItem extends Component {
             reco_benefit: null,
             reco_benefit_description: null,
             reco_content: null,
-            reco_how_to: null}
+            reco_how_to: null,
+            is_clicked: false,
+            feedback_message: null}
     }
 
     onSuccessClick = () => {
-        this.props.dispatch(requestData('GET',`/activity/${this.state.reco_id}`))
+        this.props.dispatch(requestData('GET',`/activity/${this.state.reco_id}`, {
+            handleSuccess: () => {
+                console.log("ok !")
+                this.setState( { "is_clicked": true } );
+            },
+        }))
     }
 
     onFailClick = () => {
-        this.props.dispatch(requestData('GET',`/propositions/reject/${this.state.proposition_id}`))
+        this.props.dispatch(requestData('GET',`/propositions/reject/${this.state.proposition_id}`, {
+            handleSuccess: () => {
+                console.log("ok !")
+                this.setState( { "is_clicked": true,
+                    "feedback_message": "Nous ne vous proposerons plus cette recommendation à l'avenir" } );
+            },
+        }))
     }
 
     componentDidMount () {
@@ -155,21 +169,37 @@ class PropositionItem extends Component {
                         </div>
 
 
-                        <div className="proposition-actions">
-                            <div className="activity-actions-section proposition-add text-center col"
-                                 onClick={e => { e.preventDefault(); this.onSuccessClick();} }>
-                                C'est parti !
+
+                        { ! this.state.is_clicked ? (
+                            <div className="proposition-actions">
+                                <div className="activity-actions-section proposition-add text-center col"
+                                     onClick={e => { e.preventDefault(); this.onSuccessClick();} }>
+                                    C'est parti !
+                                </div>
+                                <div className="activity-actions-section proposition-drop text-center col"
+                                     onClick={e => { e.preventDefault(); this.onFailClick();} }>
+                                    Pas pour moi
+                                </div>
                             </div>
-                            <div className="activity-actions-section proposition-drop text-center col"
-                                 onClick={e => { e.preventDefault(); this.onFailClick();} }>
-                                Pas pour moi
+                        ):(
+                            <div className="proposition-actions">
+                                { this.state.feedback_message ? (
+                                    <div className="text-center">
+                                        { this.state.feedback_message }
+                                    </div>
+                                ):(
+                                    <div className="text-center">
+                                        Cette proposition a été ajoutée à votre liste d'activitées.
+                                        Vous pouvez y accéder en cliquant
+                                        <NavLink to="/activities">
+                                            <strong> ici</strong>
+                                        </NavLink>
+                                    </div>
+                                )}
                             </div>
-                        </div>
+                        )}
 
                     </div>
-                    {/*<div className="carousel-caption">*/}
-                        {/**/}
-                    {/*</div>*/}
                 </div>
             </div>
         )
