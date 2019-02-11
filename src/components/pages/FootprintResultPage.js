@@ -28,8 +28,10 @@ class FootPrintResultPage extends Component {
 
                 <div className="footprint-result-content">
                         {
-                            footprints_data.map(footprint => (
-                                <FootprintResultItem key={footprint.id} footprint={footprint} />
+                            footprints_data.filter(e => e && e.type != 'home_mates').map(footprint => (
+                                <FootprintResultItem
+                                    key={footprint.id}
+                                    footprint={footprint} />
                             ))
                         }
                 </div>
