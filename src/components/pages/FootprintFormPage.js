@@ -461,6 +461,301 @@ class FootPrintFormPage extends Component {
                                        name="home_clothes_number" />
                             </div>
                         </Wizard.Page>
+                        {/*
+                            [HOME]
+                                [Clothes]
+                        */}
+
+                        <Wizard.Page validate={values => {
+                            const errors = {}
+                            if (!values.food_milk_products) {
+                                errors.food_milk_products = 'Merci de choisir une réponse'
+                            }
+                            return errors
+                        }}>
+                            <div className="form-group">
+                                <label htmlFor="question_12">Combien de fois par semaine consommez-vous du lait ou des produits laitiers ?</label>
+                                <Field
+                                    className="custom-select"
+                                    id="question_12"
+                                    name="food_milk_products"
+                                    component="input"
+                                    type="number"
+                                    min="0"
+                                    max="20"
+                                    step="1"
+                                    placeholder="Votre réponse"
+                                >
+                                </Field>
+                                <Error className="invalid-feedback"
+                                       name="food_milk_products" />
+                            </div>
+                        </Wizard.Page>
+
+                        <Wizard.Page validate={values => {
+                            const errors = {}
+                            if (!values.food_red_meet_meals) {
+                                errors.food_red_meet_meals = 'Merci de choisir une réponse'
+                            }
+                            if (!values.food_white_meet_meals) {
+                                errors.food_white_meet_meals = 'Merci de choisir une réponse'
+                            }
+                            if (!values.food_fish_meals) {
+                                errors.food_fish_meals = 'Merci de choisir une réponse'
+                            }
+                            if (!values.food_veggie_meals) {
+                                errors.food_veggie_meals = 'Merci de choisir une réponse'
+                            }
+                            return errors
+                        }}>
+                            <div className="form-group">
+                                <label htmlFor="question_13">Indiquez la répartation de vos types de repas par semaine :</label>
+                                <Field
+                                    className="custom-select"
+                                    id="question_13"
+                                    name="food_red_meet_meals"
+                                    component="input"
+                                    type="number"
+                                    min="0"
+                                    max="20"
+                                    step="1"
+                                    placeholder="Repas viande rouge"
+                                >
+                                </Field>
+                                <Error className="invalid-feedback"
+                                       name="food_red_meet_meals" />
+                                <Field
+                                    className="custom-select"
+                                    id="question_13"
+                                    name="food_white_meet_meals"
+                                    component="input"
+                                    type="number"
+                                    min="0"
+                                    max="20"
+                                    step="1"
+                                    placeholder="Repas viande blanche"
+                                >
+                                </Field>
+                                <Error className="invalid-feedback"
+                                       name="food_white_meet_meals" />
+                                <Field
+                                    className="custom-select"
+                                    id="question_13"
+                                    name="food_fish_meals"
+                                    component="input"
+                                    type="number"
+                                    min="0"
+                                    max="20"
+                                    step="1"
+                                    placeholder="Repas poisson"
+                                >
+                                </Field>
+                                <Error className="invalid-feedback"
+                                       name="food_fish_meals" />
+                                <Field
+                                    className="custom-select"
+                                    id="question_13"
+                                    name="food_veggie_meals"
+                                    component="input"
+                                    type="number"
+                                    min="0"
+                                    max="20"
+                                    step="1"
+                                    placeholder="Repas végétarien"
+                                >
+                                </Field>
+                                <Error className="invalid-feedback"
+                                       name="food_veggie_meals" />
+                            </div>
+                        </Wizard.Page>
+                        <Wizard.Page validate={values => {
+                            const errors = {}
+                            if (!values.food_percent_of_french_products) {
+                                errors.food_percent_of_french_products = 'Merci de choisir une réponse'
+                            }
+                            return errors
+                        }}>
+                            <div className="form-group">
+                                <label htmlFor="question_14">Sur l’ensemble des produits (nourritures)
+                                    que vous achetez, quelle proportion provient de la France ?</label>
+                                <Field
+                                    className="custom-select"
+                                    id="question_14"
+                                    name="food_percent_of_french_products"
+                                    component="input"
+                                    type="number"
+                                    min="0"
+                                    max="100"
+                                    step="5"
+                                    placeholder="Pourcentage"
+                                >
+                                </Field>
+                                <Error className="invalid-feedback"
+                                       name="food_percent_of_french_products" />
+                            </div>
+                        </Wizard.Page>
+                        <Wizard.Page validate={values => {
+                            const errors = {}
+                            if (!values.road_everyday_transport_type) {
+                                errors.road_everyday_transport_type = 'Merci de choisir une réponse'
+                            }
+                            return errors
+                        }}>
+                            <div className="form-group">
+                                <label htmlFor="question_15">Quel est votre moyen de transport principal
+                                    (trajets domicile travail principalement) ?</label>
+                                <Field
+                                    className="custom-select"
+                                    id="question_15"
+                                    name="road_everyday_transport_type"
+                                    component="select"
+                                    placeholder="Votre réponse"
+                                >
+                                    <option />
+                                    <option value="by_foot">A pied ou en vélo</option>
+                                    <option value="by_bus">Bus</option>
+                                    <option value="by_subway">Métro</option>
+                                    <option value="by_ter">TER</option>
+                                    <option value="by_tgv">TGV</option>
+                                    <option value="by_intercite">Intercité</option>
+                                    <option value="by_car_gas">Voiture essence</option>
+                                    <option value="by_car_diesel">Voiture diesel</option>
+                                    <option value="by_car_electric">Voiture électrique</option>
+                                </Field>
+                                <Error className="invalid-feedback"
+                                       name="road_everyday_transport_type" />
+                            </div>
+                        </Wizard.Page>
+                        <Wizard.Page validate={values => {
+                            const errors = {}
+                            if (!values.road_everyday_distance) {
+                                errors.road_everyday_distance = 'Merci de choisir une réponse'
+                            }
+                            return errors
+                        }}>
+                            <div className="form-group">
+                                <label htmlFor="question_16">Sur l’ensemble des produits (nourritures)
+                                    que vous achetez, quelle proportion provient de la France ?</label>
+                                <Field
+                                    className="custom-select"
+                                    id="question_16"
+                                    name="road_everyday_distance"
+                                    component="input"
+                                    type="number"
+                                    min="0"
+                                    max="100"
+                                    step="5"
+                                    placeholder="Pourcentage"
+                                >
+                                </Field>
+                                <Error className="invalid-feedback"
+                                       name="road_everyday_distance" />
+                            </div>
+                        </Wizard.Page>
+
+                        <Wizard.Page validate={values => {
+                            const errors = {}
+                            if (!values.road_going_on_holiday_plane) {
+                                errors.road_going_on_holiday_plane = 'Merci de choisir une réponse'
+                            }
+                            if (!values.road_going_on_holiday_tgv) {
+                                errors.road_going_on_holiday_tgv = 'Merci de choisir une réponse'
+                            }
+                            if (!values.road_going_on_holiday_ter) {
+                                errors.road_going_on_holiday_ter = 'Merci de choisir une réponse'
+                            }
+                            if (!values.road_going_on_holiday_car) {
+                                errors.road_going_on_holiday_car = 'Merci de choisir une réponse'
+                            }
+                            return errors
+                        }}>
+                            <div className="form-group">
+                                <label htmlFor="question_17">En moyenne combien d'heures voyagez vous par an ?</label>
+                                <Field
+                                    className="custom-select"
+                                    id="question_17"
+                                    name="road_going_on_holiday_plane"
+                                    component="input"
+                                    type="number"
+                                    min="0"
+                                    max="100"
+                                    step="1"
+                                    placeholder="En avion"
+                                >
+                                </Field>
+                                <Error className="invalid-feedback"
+                                       name="road_going_on_holiday_plane" />
+                                <Field
+                                    className="custom-select"
+                                    id="question_17"
+                                    name="road_going_on_holiday_tgv"
+                                    component="input"
+                                    type="number"
+                                    min="0"
+                                    max="100"
+                                    step="1"
+                                    placeholder="En TGV"
+                                >
+                                </Field>
+                                <Error className="invalid-feedback"
+                                       name="road_going_on_holiday_tgv" />
+                                <Field
+                                    className="custom-select"
+                                    id="question_13"
+                                    name="road_going_on_holiday_ter"
+                                    component="input"
+                                    type="number"
+                                    min="0"
+                                    max="100"
+                                    step="1"
+                                    placeholder="En TER"
+                                >
+                                </Field>
+                                <Error className="invalid-feedback"
+                                       name="road_going_on_holiday_ter" />
+                                <Field
+                                    className="custom-select"
+                                    id="question_17"
+                                    name="road_going_on_holiday_car"
+                                    component="input"
+                                    type="number"
+                                    min="0"
+                                    max="100"
+                                    step="1"
+                                    placeholder="En voiture"
+                                >
+                                </Field>
+                                <Error className="invalid-feedback"
+                                       name="road_going_on_holiday_car" />
+                            </div>
+                        </Wizard.Page>
+                        <Wizard.Page validate={values => {
+                            const errors = {}
+                            if (!values.road_going_out) {
+                                errors.road_going_out = 'Merci de choisir une réponse'
+                            }
+                            return errors
+                        }}>
+                            <div className="form-group">
+                                <label htmlFor="question_18">Combien de fois par semaine faites vous appel à un taxi
+                                    / chauffeur privé ?</label>
+                                <Field
+                                    className="custom-select"
+                                    id="question_18"
+                                    name="road_going_out"
+                                    component="input"
+                                    type="number"
+                                    min="0"
+                                    max="40"
+                                    step="1"
+                                    placeholder="Votre réponse"
+                                >
+                                </Field>
+                                <Error className="invalid-feedback"
+                                       name="road_going_out" />
+                            </div>
+                        </Wizard.Page>
+
                     </Wizard>
                     </div>
             </div>
