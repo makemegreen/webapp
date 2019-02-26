@@ -634,8 +634,7 @@ class FootPrintFormPage extends Component {
                             return errors
                         }}>
                             <div className="form-group">
-                                <label htmlFor="question_16">Sur l’ensemble des produits (nourritures)
-                                    que vous achetez, quelle proportion provient de la France ?</label>
+                                <label htmlFor="question_16">Quelle distance moyenne parcourez-vous avec ce moyen de transport ? (en km par jour)</label>
                                 <Field
                                     className="custom-select"
                                     id="question_16"
@@ -643,7 +642,7 @@ class FootPrintFormPage extends Component {
                                     component="input"
                                     type="number"
                                     min="0"
-                                    max="100"
+                                    max="1000"
                                     step="5"
                                     placeholder="Pourcentage"
                                 >

@@ -22,6 +22,7 @@ class DashboardPage extends Component {
             footprints: [],
             statistics: [],
             activity_count: 0,
+            global_footprint: 0,
             user_total_saved: 0,
             user_rank: "0/0",
             showInstallMessage: false
@@ -33,6 +34,7 @@ class DashboardPage extends Component {
             handleSuccess: (state, action) => {
                 const footprints = get(action, 'data.weekly_progress')
                 const statistics = get(action, 'data.statistics')
+                const global_footprint = get(get(action, 'data.global_footprint'), 'global_footprint')
                 const activity_count = get(get(action, 'data.activities'),'activity_count')
                 const user_rank = get(get(action, 'data.leaderbord'),'rank')
                 const user_total_saved = get(get(action, 'data.statistics'),'user_total_saved')
@@ -40,6 +42,7 @@ class DashboardPage extends Component {
                     "activity_count": activity_count,
                     "isLoading": false,
                     "footprints" : footprints,
+                    "global_footprint" : global_footprint,
                     "statistics" : statistics,
                     "user_rank" : user_rank,
                     "user_total_saved" : user_total_saved,
@@ -73,7 +76,7 @@ class DashboardPage extends Component {
                             <div className="row">
                                 <div className="col">
                                     <div className="earth-consumption text-center">
-                                        <span>1.23</span>
+                                        <span>{ this.state.global_footprint }</span>
                                     </div>
                                 </div>
                                 <div className="col">
