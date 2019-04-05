@@ -9,15 +9,21 @@ class SignupPage extends Component {
 
     constructor (props) {
         super(props)
-        this.state = { email: '',
-                       username: '',
-                       password: '',
-                       footprints: this.props.footprints,
-                        errors: null }
+        this.state = {
+            email: '',
+            username: '',
+            password: '',
+            footprints: this.props.footprints,
+            details: this.props.details,
+            errors: null
+        }
     }
 
     componentDidMount () {
-        this.setState({ footprints: this.props.footprints })
+        this.setState({
+            footprints: this.props.footprints,
+            details: this.props.details
+        })
     }
 
     onSubmitedClick = () => {
@@ -27,7 +33,9 @@ class SignupPage extends Component {
                 body: {"email" : this.state.email,
                         "password": this.state.password,
                         "username": this.state.username,
-                        "footprints": this.state.footprints},
+                        "footprints": this.state.footprints,
+                        "details": this.state.details
+                },
                 handleSuccess: (r) => {
                     // this.state.data.user = r
                     const { history } = this.props
@@ -42,7 +50,7 @@ class SignupPage extends Component {
     }
 
     render () {
-        const { footprints } = this.props
+        const { footprints, details } = this.props
 
         return(
             <div className="text-center">
@@ -70,6 +78,7 @@ class SignupPage extends Component {
                            onChange={( e ) => this.setState({ password : e.target.value })}
                            value={this.state.password}/>
                     <input type="hidden" value={footprints}/>
+                    <input type="hidden" value={details}/>
                     <div className="form-error">{this.state.errors}</div>
                     <button className="btn btn-lg btn-primary btn-block" type="submit">Inscription</button>
                 </form>
@@ -84,5 +93,8 @@ class SignupPage extends Component {
 }
 
 export default compose(connect(
-    state => ({ footprints: state.data.footprints })
+    state => ({
+        footprints: state.data.footprints,
+        details: state.data.details,
+    })
 ))(SignupPage)

@@ -509,7 +509,7 @@ class FootPrintFormPage extends Component {
                             return errors
                         }}>
                             <div className="form-group">
-                                <label htmlFor="question_13">Indiquez la répartation de vos types de repas par semaine :</label>
+                                <label htmlFor="question_13">Combien de fois mangez-vous par semaine :</label>
                                 <Field
                                     className="custom-select"
                                     id="question_13"
@@ -644,7 +644,7 @@ class FootPrintFormPage extends Component {
                                     min="0"
                                     max="1000"
                                     step="5"
-                                    placeholder="Pourcentage"
+                                    placeholder="Distance"
                                 >
                                 </Field>
                                 <Error className="invalid-feedback"

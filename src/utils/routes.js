@@ -60,7 +60,7 @@ const routes = [
     },
     {
         component: DetailsPage,
-        path: '/details',
+        path: '/details/:footprint_type?',
         title: "Details",
     },
     {

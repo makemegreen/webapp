@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom'
 import FootprintResultItem from "../items/FootprintResultItem";
 
 
-
 class FootPrintResultPage extends Component {
 
     constructor (props) {
@@ -13,7 +12,7 @@ class FootPrintResultPage extends Component {
     }
 
     render () {
-        const { footprints } = this.props
+        const { footprints, details } = this.props
 
         let footprints_data = []
         if ( footprints.length > 0 ){
@@ -36,7 +35,7 @@ class FootPrintResultPage extends Component {
                         }
                 </div>
                 <div className="signup-link text-center">
-                    <NavLink to="/inscription" params={footprints}>
+                    <NavLink to="/inscription" params={footprints} params={details}>
                         {"Je créé mon compte"}
                     </NavLink>
                 </div>
@@ -46,5 +45,8 @@ class FootPrintResultPage extends Component {
 }
 
 export default compose(connect(
-    state => ({ footprints: state.data.footprints })
+    state => ({
+        footprints: state.data.footprints,
+        details: state.data.details,
+    })
 ))(FootPrintResultPage)
