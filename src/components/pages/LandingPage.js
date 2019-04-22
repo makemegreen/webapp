@@ -62,16 +62,16 @@ class LandingPage extends Component {
                     <div className="statistics-section">
                         {!isLoading ? (
                             <div className="text-center">
-                                <span>Depuis le lancement de l'application,
-                                    les utilisateurs de MakeMeGreen ont réussi à économier :
+                                <span>Depuis son lancement,
+                                    les utilisateurs de MakeMeGreen ont économisé l'équivalent de :
                                 </span>
                                 <br/>
                                 <span>
-                                    <strong>{this.state.total_saved} de C0²</strong>
+                                    <strong>15,2 terres.</strong>
                                 </span>
                                 <br/>
                                 <span className="text-align">
-                                    Et si vous étiez le prochain à participer cette aventure ?
+                                    Soyez le prochain à participer à cette aventure.
                                 </span>
                                 <div className="sign-links text-center">
                                     <NavLink to="/footprint" className="btn btn-primary">

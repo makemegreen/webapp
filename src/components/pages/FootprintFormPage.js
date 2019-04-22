@@ -643,7 +643,6 @@ class FootPrintFormPage extends Component {
                                     type="number"
                                     min="0"
                                     max="1000"
-                                    step="5"
                                     placeholder="Distance"
                                 >
                                 </Field>
