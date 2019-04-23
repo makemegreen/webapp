@@ -86,9 +86,9 @@ class ActivityItem extends Component {
 
         let display_status = ""
 
-        if (status == "pending"){
+        if (status === "pending"){
             display_status = "en cours"
-        }else if(status == "success"){
+        }else if(status === "success"){
             display_status = "succès"
         }else{
             display_status = "arrêté"
@@ -185,7 +185,7 @@ class ActivityItem extends Component {
 
 
                 </div>
-                { this.state.status == "pending" ? (
+                { this.state.status === "pending" ? (
                 <div className="activity-actions row">
                     <div className="activity-actions-section section-left text-center col"
                         onClick={e => { e.preventDefault(); this.onSuccessClick();} }>

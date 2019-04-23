@@ -3,7 +3,7 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import {requestData} from "../../reducers/data";
 import withLogin from "../hocs/withLogin"
-import Highcharts from "highcharts"
+import {Line} from 'react-chartjs-2';
 import moment from 'moment'
 import get from "lodash.get";
 import NavBar from "../items/NavBar";
@@ -13,7 +13,8 @@ class ProgressPage extends Component {
     constructor () {
         super()
         this.state = { isLoading: true,
-            "history": []
+            "history": [],
+            "line_data": []
         }
     }
 
@@ -31,77 +32,53 @@ class ProgressPage extends Component {
                 let series_road = []
                 let series_home = []
                 let series_food = []
+                
                 history.map(footprints => (
                     footprints.map(footprint => {
                             if (get(get(footprint, 'type'), 'label') == "road") {
-                                series_road.push([moment(get(footprint, 'date_created')).valueOf(), get(footprint, 'value')])
+                                let data = {
+                                    'x': moment(get(footprint, 'date_created')).valueOf(),
+                                    'y': get(footprint, 'value')
+                                }
+                                series_road.push(data)
                             }
                             if (get(get(footprint, 'type'), 'label') == "food") {
-                                series_food.push([moment(get(footprint, 'date_created')).valueOf(), get(footprint, 'value')])
+                                let data = {
+                                    'x': moment(get(footprint, 'date_created')).valueOf(),
+                                    'y': get(footprint, 'value')
+                                }
+                                series_food.push(data)
                             }
                             if (get(get(footprint, 'type'), 'label') == "home") {
-                                series_home.push([moment(get(footprint, 'date_created')).valueOf   (), get(footprint, 'value')])
+                                let data = {
+                                    'x': moment(get(footprint, 'date_created')).valueOf(),
+                                    'y': get(footprint, 'value')
+                                }
+                                series_home.push(data)
                             }
                         }))
                 )
 
-                Highcharts.chart('container', {
-
-                    title: {
-                        text: 'Evolution de mes empreintes écologiques'
-                    },
-
-                    subtitle: {
-                        text: 'makemegreen.fr'
-                    },
-                    xAxis: {
-                        type: 'datetime',
-                        labels: {
-                            format: '{value:%Y-%b-%e}'
+                const line_data = {
+                    // labels: series_home_labels,
+                    datasets: [
+                        {
+                            label: 'A la maison',
+                            data: series_home
                         },
-                        dateTimeLabelFormats: {
-                            day: "%e. %b",
-                            month: "%b '%y",
-                            year: "%Y"
+                        {
+                            label: 'Dans mon assiette',
+                            data: series_food
                         },
-                        tickInterval: 3600000,
-                    },
-                    yAxis: {
-                        title: {
-                            text: 'Kg de CO²'
+                        {
+                            label: 'Sur la route',
+                            data: series_road
                         }
-                    },
-                    legend: {
-                        layout: 'vertical',
-                        align: 'right',
-                        verticalAlign: 'middle'
-                    },
-                    series: [{
-                        name: 'road',
-                        data: series_road
-                    }, {
-                        name: 'food',
-                        data: series_food
-                    }, {
-                        name: 'home',
-                        data: series_home
-                    }],
+                    ]
+                };
 
-                    responsive: {
-                        rules: [{
-                            condition: {
-                                maxWidth: 500
-                            },
-                            chartOptions: {
-                                legend: {
-                                    layout: 'horizontal',
-                                    align: 'center',
-                                    verticalAlign: 'bottom'
-                                }
-                            }
-                        }]
-                    }
-
+                this.setState({
+                    "line_data": line_data
                 });
             },
             key: "history"
@@ -110,6 +87,34 @@ class ProgressPage extends Component {
     }
 
     render () {
+
+        const options = {
+            scales: {
+                xAxes: [{
+                    type: 'time',
+                    distribution: 'series',
+                    time: {
+                        unit: "minute",
+                        displayFormats: {
+                            millisecond: 'h:mm:ss.SSS a',
+                            second: 'h:mm:ss',
+                            minute: 'MMM DD hh:mm',
+                            hour: 'MMM DD',
+                            day: 'MMM DD',
+                            week: 'MMM DD',
+                            month: 'MMM DD',
+                            quarter: 'MMM DD',
+                            year: 'MMM DD',
+                        }
+                    },
+                    ticks: {
+                        source: 'data'
+                    }
+                }]
+            }
+        }
+
+        const { isLoading, line_data } = this.state
 
         return(
             <div className="text-center">
@@ -122,7 +127,11 @@ class ProgressPage extends Component {
 
                 <div className="content">
                     <div className="progress-section">
-                        <div id="container"></div>
+                        {!isLoading ? (
+                            <Line data={line_data} options={options}/>
+                        ):(
+                            <span>Chargement en cours...</span>
+                        )}
                     </div>
                 </div>
             </div>

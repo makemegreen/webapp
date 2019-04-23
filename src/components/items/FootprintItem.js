@@ -1,7 +1,5 @@
 import get from 'lodash.get'
 import React from 'react'
-
-
 import details from '../../assets/details.png'
 import {THUMBS_URL} from "../../utils/config";
 import {NavLink} from "react-router-dom";
@@ -34,6 +32,7 @@ const FootprintItem = ({
             footprint_trend = THUMBS_URL + "down"
             break;
     }
+
     let footprint_value = get(footprint, "value")
     if (footprint_value != 0){
         footprint_value = '- ' + footprint_value
@@ -49,7 +48,7 @@ const FootprintItem = ({
                 <strong className="footprint-result-value"> { footprint_value } </strong> kg/CO2/an
             </div>
             <div className="footprint-row-trend media-right">
-                <NavLink to={"/details?" + footprint_type }>
+                <NavLink to={ `details/${footprint_type}`}>
                     <img className="details-img" src={ details } alt="go to details"/>
                 </NavLink>
             </div>
